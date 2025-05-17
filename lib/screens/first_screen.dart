@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:suitmedia_km_test_akbar_al_fattah_mobile_developer_intern/screens/second_screen.dart';
 import '../controllers/palindrome_controller.dart';
 // import 'second_screen.dart';
 
@@ -47,6 +48,9 @@ class FirstScreen extends StatelessWidget{
                   //text field untuk name
                   TextField(
                     onChanged: controller.setName,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500
+                    ),
                     decoration: InputDecoration(
                       hintText: "Name",
                       filled: true,
@@ -58,6 +62,9 @@ class FirstScreen extends StatelessWidget{
                   //text field untuk palindrome
                   TextField(
                     onChanged: controller.setSentence,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500
+                    ),
                     decoration: InputDecoration(
                       hintText: "Palindrome",
                       filled: true,
@@ -81,6 +88,7 @@ class FirstScreen extends StatelessWidget{
                     child:const Text(
                         style: TextStyle(
                           color: Colors.white,
+                          fontWeight: FontWeight.w500
                         ),
                         "CHECK"
                     ),
@@ -96,11 +104,12 @@ class FirstScreen extends StatelessWidget{
                       ),
                     ),
                     onPressed: () {
-                      // Switch to second screen
+                      Get.to(() => SecondScreen(), arguments: controller.name.value);
                     },
                     child:const Text(
                         style: TextStyle(
                           color: Colors.white,
+                            fontWeight: FontWeight.w500
                         ),
                         "NEXT"
                     ),

@@ -14,6 +14,10 @@ class MyApp extends StatelessWidget {
       title: 'Palindrome Checker',
       home: FirstScreen(),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          fontFamily: 'Poppins',
+          useMaterial3: true
+      ),
     );
   }
 }
