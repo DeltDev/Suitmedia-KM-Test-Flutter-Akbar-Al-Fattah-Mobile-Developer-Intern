@@ -36,16 +36,61 @@ class ThirdScreen extends StatelessWidget{
             itemCount: userController.users.length,
             itemBuilder: (context, index){
               final user = userController.users[index];
-              return ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: NetworkImage(user.avatarURL),
-                ),
-                title: Text("${user.firstName} ${user.lastName}"),
-                subtitle: Text(user.email),
-                onTap: () {
-                  userController.selectedUserName.value = "${user.firstName} ${user.lastName}";
-                  Get.back();
-                },
+              return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      userController.selectedUserName.value = "${user.firstName} ${user.lastName}";
+                      Get.back();
+                      },
+                    child: Container(
+                      padding: const EdgeInsets.all(12.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.05),
+                            blurRadius: 5,
+                            offset: Offset(0, 2),
+                          )
+                        ]
+                      ),
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 28,
+                            backgroundImage: NetworkImage(user.avatarURL),
+                          ),
+                          const SizedBox(
+                              width: 16
+                          ),
+                          Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "${user.firstName} ${user.lastName}",
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4,),
+                                  Text(
+                                    user.email,
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.grey,
+                                    ),
+                                  )
+                                ],
+                              )
+                          )
+                        ],
+                      ),
+                    ),
+                  )
               );
             }
         );
