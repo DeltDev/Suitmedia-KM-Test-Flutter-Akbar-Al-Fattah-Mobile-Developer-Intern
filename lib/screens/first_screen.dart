@@ -110,7 +110,7 @@ class FirstScreen extends StatelessWidget{
                         }
                         Get.to(() => SecondScreen(), arguments: controller.name.value);
                       } catch (e){
-                        Get.snackbar("Error", "Failed to submit: $e");
+                        Get.snackbar("Error", e.toString().replaceFirst('Exception: ', ''));
                       }
                     },
                     child:const Text(
