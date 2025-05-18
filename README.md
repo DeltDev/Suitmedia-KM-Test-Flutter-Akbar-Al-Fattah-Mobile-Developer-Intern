@@ -1,16 +1,12 @@
-# suitmedia_km_test_akbar_al_fattah_mobile_developer_intern
+# Suitmedia KM Test Mobile Developer Intern
 
-A new Flutter project.
+Dikerjakan oleh: Akbar Al Fattah
 
-## Getting Started
+Requirements:
+1. Flutter versi 3.29+
+2. Android NDK versi 27.0.12077973 atau lebih baru
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Cara menjalankan aplikasi:
+1. Buka Android Studio
+2. Sambungkan perangkat Android ke PC yang sedang membuka project ini
+3. Run aplikasi
