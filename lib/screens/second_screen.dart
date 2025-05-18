@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:suitmedia_km_test_akbar_al_fattah_mobile_developer_intern/controllers/user_controller.dart';
 import 'package:suitmedia_km_test_akbar_al_fattah_mobile_developer_intern/screens/third_screen.dart';
 
 import '../controllers/palindrome_controller.dart';
 
 class SecondScreen extends StatelessWidget {
   final controller = Get.find<PalindromeController>();
+  final UserController userController = Get.find<UserController>();
   SecondScreen({super.key});
   @override
   Widget build(BuildContext context) {
@@ -45,14 +47,16 @@ class SecondScreen extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const Center(
-              child: Text(
-                'Selected User Name',
+            Center(
+              child: Obx(() => Text(
+                userController.selectedUserName.value.isEmpty
+                    ? 'No Selected User Name'
+                    : userController.selectedUserName.value,
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 22,
                 ),
-              ),
+              )),
             ),
             const Spacer(),
             ElevatedButton(

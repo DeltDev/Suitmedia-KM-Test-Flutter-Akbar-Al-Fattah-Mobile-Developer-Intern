@@ -5,7 +5,7 @@ import '../controllers/palindrome_controller.dart';
 // import 'second_screen.dart';
 
 class FirstScreen extends StatelessWidget{
-  final controller = Get.put(PalindromeController());
+  final controller = Get.find<PalindromeController>();
   FirstScreen({super.key});
 
   void _showResultDialog(bool isPalindrome) {
@@ -104,7 +104,14 @@ class FirstScreen extends StatelessWidget{
                       ),
                     ),
                     onPressed: () {
-                      Get.to(() => SecondScreen(), arguments: controller.name.value);
+                      try{
+                        if(controller.name.value == ''){
+                          throw Exception("Name cannot be empty");
+                        }
+                        Get.to(() => SecondScreen(), arguments: controller.name.value);
+                      } catch (e){
+                        Get.snackbar("Error", "Failed to submit: $e");
+                      }
                     },
                     child:const Text(
                         style: TextStyle(
